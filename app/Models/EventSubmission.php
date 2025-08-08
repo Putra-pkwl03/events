@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class EventSubmission extends Model
 {
-    protected $fillable = ['submission_id', 'submitted_at', 'is_present', 'token' ];
+    protected $fillable = ['submission_id', 'submitted_at', 'is_present', 'token', 'qr_code_path' ];
 
     public function event()
     {

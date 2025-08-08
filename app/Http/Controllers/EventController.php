@@ -23,7 +23,7 @@ public function store(Request $request)
 {
     $request->validate([
         'title'      => 'required|string',
-        'category'   => 'required|string', // kategori wajib
+        'category'   => 'required|string', 
         'event_date' => 'required|date',
         'poster'     => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         'fields'     => 'required|array',
@@ -48,7 +48,6 @@ public function store(Request $request)
             'event_id' => $event->id,
             'label'    => $field['label'],
             'type'     => $field['type'],
-            // Simpan langsung array, biar casts handle JSON
             'options'  => !empty($field['options']) ? explode(',', $field['options']) : null,
         ]);
     }

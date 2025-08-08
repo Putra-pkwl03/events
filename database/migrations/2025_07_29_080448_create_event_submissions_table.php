@@ -17,6 +17,7 @@ return new class extends Migration
             $table->timestamp('submitted_at')->nullable();
             $table->boolean('is_present')->default(false);
             $table->string('token')->unique()->nullable();
+            $table->string('qr_code_path')->nullable();
             $table->timestamps();
         });
 

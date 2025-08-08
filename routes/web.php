@@ -37,9 +37,11 @@ Route::middleware('auth')->group(function() {
 });
 
 
-Route::get('/partisipan/home', [SubmitController::class, 'index'])->name('partisipan.home');
-Route::get('partisipan/event/{event}', [SubmitController::class, 'form'])->name('partisipan.event.form');
-Route::post('/partisipan/event/{event}/submit', [SubmitController::class, 'submit'])->name('partisipan.event.submit');
-Route::get('/partisipan/event/{submission}/qrcode', [SubmitController::class, 'showQr'])->name('partisipan.event.qrcode');
+Route::get('/', [SubmitController::class, 'index'])->name('partisipan.home');
+Route::get('/event', [SubmitController::class, 'show'])->name('partisipan.event');
+Route::get('/event/load-more', [SubmitController::class, 'loadMore'])->name('partisipan.loadMore');
+Route::get('event/{event}', [SubmitController::class, 'form'])->name('partisipan.event.form');
+Route::post('event/{event}/submit', [SubmitController::class, 'submit'])->name('partisipan.event.submit');
 Route::get('/absen/checkin/{token}', [AbsenController::class, 'checkin'])->name('absen.checkin');
+Route::get('/search-events', [SubmitController::class, 'search'])->name('events.search');
 
